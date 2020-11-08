@@ -1,0 +1,124 @@
+unit EmployeeDetailsForm;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TfrmEmployeeDetails = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    btnSave: TButton;
+    btnCancel: TButton;
+    Label1: TLabel;
+    edtEmployeeID: TEdit;
+    Label2: TLabel;
+    edtEmployeeFirstname: TEdit;
+    Label3: TLabel;
+    edtEmployeeLastname: TEdit;
+    Label4: TLabel;
+    edtEmployeeEmail: TEdit;
+    procedure FormShow(Sender: TObject);
+    procedure btnSaveClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmEmployeeDetails: TfrmEmployeeDetails;
+
+implementation
+
+{$R *.dfm}
+
+uses DataModule;
+
+procedure TfrmEmployeeDetails.btnSaveClick(Sender: TObject);
+begin
+if (self.Caption = 'Employee Details - Add') then
+  begin
+    //verify required fields
+    if (edtEmployeeFirstname.Text <> '') and (edtEmployeeLastname.Text <> '') then
+        begin
+          //don't forget to link the datamodule and employeeaddedit form
+          //we are going send an insert query to our database
+          //the same process when we do queries with slight difference
+          //instead of Active := true; --> ExecSQL;
+          with DM.QryInsert do
+            begin
+               active := false;
+               sql.Clear;
+               sql.Text := 'INSERT INTO Employees(first_name, last_name, email_address) ' +
+                            ' VALUES(' + quotedstr(edtEmployeeFirstname.Text) + ',' +
+                                         quotedstr(edtEmployeeLastname.Text) + ',' +
+                                         quotedstr(edtEmployeeEmail.Text) + ')';
+               //Showmessage(sql.Text); //this command allows us to see the entire SQL Statement that will be sent to our DB
+               ExecSQL;
+            end;
+
+            Showmessage('New record successfully added');
+            Close;
+        end;
+  end
+else if (self.Caption = 'Employee Details - Update') then
+  begin
+     if (edtEmployeeFirstname.Text <> '') or (edtEmployeeLastname.Text <> '') then
+        begin
+
+          //we are going send an update query to our database
+          //the same process when we do queries this time, with UPDATE statement
+          //instead of Active := true; --> ExecSQL;
+          with DM.QryUpdate do
+            begin
+               active := false;
+               sql.Clear;
+               sql.Text := 'UPDATE Employees SET first_name = ' + quotedstr(edtEmployeeFirstname.Text) +
+                                               ', last_name = ' + quotedstr(edtEmployeeLastname.Text) +
+                                               ', email_address = ' + quotedstr(edtEmployeeEmail.Text) +
+                            ' WHERE id = ' + edtEmployeeID.Text;  //we MUST have a filter here to make sure we only update the selected ID
+               Showmessage(sql.Text); //this command allows us to see the entire SQL Statement that will be sent to our DB
+               ExecSQL;
+            end;
+
+            Showmessage('Record successfully updated!');
+        end;
+  end;
+end;
+
+procedure TfrmEmployeeDetails.FormShow(Sender: TObject);
+begin
+  if (self.Caption = 'Employee Details - Add') then
+    begin
+      //when adding new records, if the primary key is autoincrement value, then ID field will be blank
+      //since we are adding a new record, we clear the fields to make way for new data to be inputted
+      edtEmployeeID.Clear;
+      edtEmployeeFirstname.Clear;
+      edtEmployeeLastname.Clear;
+      edtEmployeeEmail.Clear;
+    end
+  else if (self.Caption = 'Employee Details - Update') then
+    begin
+       //Display details of the selected ID wherein we stored the selected IDj in the Hint property of this form
+       //we issue and SQL Statement where ID = selected ID
+
+       with DM.QrySelectDetails do         //I used a different dataset here to retain the data shown in the grid
+          begin
+            active := false;
+            sql.Clear;
+            sql.Text := 'SELECT * FROM Employees WHERE id = ' + self.Hint;    //self - refer to this form
+            active := true;
+          end;
+
+       //populate to the editboxes all the details
+       edtEmployeeID.Text := dm.QrySelectDetails.FieldByName('id').AsString;
+       edtEmployeeFirstname.Text := dm.QrySelectDetails.FieldByName('first_name').AsString;
+       edtEmployeeLastname.Text := dm.QrySelectDetails.FieldByName('last_name').AsString;
+       edtEmployeeEmail.Text := dm.QrySelectDetails.FieldByName('email_address').AsString;
+    end;
+end;
+
+end.

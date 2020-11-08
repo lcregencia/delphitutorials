@@ -1,0 +1,36 @@
+unit EmployeeDetailsForm;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TfrmEmployeeDetails = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    btnSave: TButton;
+    btnCancel: TButton;
+    Label1: TLabel;
+    edtEmployeeID: TEdit;
+    Label2: TLabel;
+    edtEmployeeFirstname: TEdit;
+    Label3: TLabel;
+    edtEmployeeLastname: TEdit;
+    Label4: TLabel;
+    edtEmployeeEmail: TEdit;
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmEmployeeDetails: TfrmEmployeeDetails;
+
+implementation
+
+{$R *.dfm}
+
+end.

@@ -1,0 +1,82 @@
+unit EmployeeDetailsForm;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Vcl.StdCtrls, Vcl.ExtCtrls;
+
+type
+  TfrmEmployeeDetails = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    btnSave: TButton;
+    btnCancel: TButton;
+    Label1: TLabel;
+    edtEmployeeID: TEdit;
+    Label2: TLabel;
+    edtEmployeeFirstname: TEdit;
+    Label3: TLabel;
+    edtEmployeeLastname: TEdit;
+    Label4: TLabel;
+    edtEmployeeEmail: TEdit;
+    procedure FormShow(Sender: TObject);
+    procedure btnSaveClick(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmEmployeeDetails: TfrmEmployeeDetails;
+
+implementation
+
+{$R *.dfm}
+
+uses DataModule;
+
+procedure TfrmEmployeeDetails.btnSaveClick(Sender: TObject);
+begin
+if (self.Caption = 'Employee Details - Add') then
+  begin
+    //verify required fields
+    if (edtEmployeeFirstname.Text <> '') or (edtEmployeeLastname.Text <> '') then
+        begin
+          //don't forget to link the datamodule and employeeaddedit form
+          //we are going send an insert query to our database
+          //the same process when we do queries with slight difference
+          //instead of Active := true; --> ExecSQL;
+          with DM.QryInsert do
+            begin
+               active := false;
+               sql.Clear;
+               sql.Text := 'INSERT INTO Employees(first_name, last_name, email_address) ' +
+                            ' VALUES(' + quotedstr(edtEmployeeFirstname.Text) + ',' +
+                                         quotedstr(edtEmployeeLastname.Text) + ',' +
+                                         quotedstr(edtEmployeeEmail.Text) + ')';
+               Showmessage(sql.Text); //this command allows us to see the entire SQL Statement that will be sent to our DB
+               ExecSQL;
+            end;
+
+            Showmessage('New record successfully added');
+            Close;
+        end;
+  end
+end;
+
+procedure TfrmEmployeeDetails.FormShow(Sender: TObject);
+begin
+  if (self.Caption = 'Employee Details - Add') then
+    begin
+      //when adding new records, if the primary key is autoincrement value, then ID field will be blank
+      //since we are adding a new record, we clear the fields to make way for new data to be inputted
+      edtEmployeeID.Clear;
+      edtEmployeeFirstname.Clear;
+      edtEmployeeLastname.Clear;
+      edtEmployeeEmail.Clear;
+    end
+end;
+
+end.

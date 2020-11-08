@@ -1,0 +1,21 @@
+object DM: TDM
+  OldCreateOrder = False
+  Height = 384
+  Width = 654
+  object Conn: TMyConnection
+    Database = 'northwind'
+    Username = 'root'
+    Connected = True
+    LoginPrompt = False
+    Left = 64
+    Top = 32
+  end
+  object QrySelect: TMyQuery
+    Connection = Conn
+    SQL.Strings = (
+      'SELECT * FROM EMPLOYEES')
+    Active = True
+    Left = 160
+    Top = 32
+  end
+end

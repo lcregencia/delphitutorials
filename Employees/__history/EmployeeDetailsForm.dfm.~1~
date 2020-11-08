@@ -1,0 +1,52 @@
+object frmEmployeeDetails: TfrmEmployeeDetails
+  Left = 0
+  Top = 0
+  Caption = 'Employee Details'
+  ClientHeight = 449
+  ClientWidth = 654
+  Color = clBtnFace
+  Font.Charset = DEFAULT_CHARSET
+  Font.Color = clWindowText
+  Font.Height = -11
+  Font.Name = 'Tahoma'
+  Font.Style = []
+  OldCreateOrder = False
+  PixelsPerInch = 96
+  TextHeight = 13
+  object Panel1: TPanel
+    Left = 0
+    Top = 0
+    Width = 654
+    Height = 384
+    Align = alClient
+    TabOrder = 0
+    ExplicitLeft = 120
+    ExplicitTop = 16
+    ExplicitWidth = 185
+    ExplicitHeight = 41
+  end
+  object Panel2: TPanel
+    Left = 0
+    Top = 384
+    Width = 654
+    Height = 65
+    Align = alBottom
+    TabOrder = 1
+    object btnSave: TButton
+      Left = 448
+      Top = 24
+      Width = 75
+      Height = 25
+      Caption = 'Save'
+      TabOrder = 0
+    end
+    object btnCancel: TButton
+      Left = 560
+      Top = 16
+      Width = 75
+      Height = 25
+      Caption = 'Cancel'
+      TabOrder = 1
+    end
+  end
+end

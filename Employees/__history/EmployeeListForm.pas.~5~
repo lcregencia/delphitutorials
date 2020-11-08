@@ -1,0 +1,57 @@
+unit EmployeeListForm;
+
+interface
+
+uses
+  Winapi.Windows, Winapi.Messages, System.SysUtils, System.Variants, System.Classes, Vcl.Graphics,
+  Vcl.Controls, Vcl.Forms, Vcl.Dialogs, Data.DB, Vcl.StdCtrls, Vcl.Grids,
+  Vcl.DBGrids, Vcl.ExtCtrls, DBAccess, MyAccess;
+
+type
+  TfrmEmployeeList = class(TForm)
+    Panel1: TPanel;
+    Panel2: TPanel;
+    DBGrid1: TDBGrid;
+    btnCreate: TButton;
+    btnUpdate: TButton;
+    btnDelete: TButton;
+    btnClose: TButton;
+    Panel3: TPanel;
+    edt_SearchKeyword: TEdit;
+    Label1: TLabel;
+    btn_Search: TButton;
+    MyDataSource1: TMyDataSource;
+    procedure btnCloseClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
+  private
+    { Private declarations }
+  public
+    { Public declarations }
+  end;
+
+var
+  frmEmployeeList: TfrmEmployeeList;
+
+implementation
+
+{$R *.dfm}
+
+uses DataModule;
+
+procedure TfrmEmployeeList.btnCloseClick(Sender: TObject);
+begin
+  Close;
+end;
+
+procedure TfrmEmployeeList.FormShow(Sender: TObject);
+begin
+  with DM.QrySelect do
+    begin
+      active := false;
+      sql.Clear;
+      sql.Text := 'SELECT * FROM EMPLOYEES';   //sql.add('');
+      active := true;
+    end;
+end;
+
+end.

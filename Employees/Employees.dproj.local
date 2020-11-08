@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<BorlandProject>
+	<Transactions>
+    <Transaction>2020/05/23 20:50:34.000.576,=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/06/21 14:22:05.000.338,=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/06/22 08:21:57.000.441,=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\FormUnit1.pas</Transaction>
+    <Transaction>2020/06/22 08:21:59.000.203,=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\WebModuleUnit1.pas</Transaction>
+    <Transaction>2020/08/15 23:53:48.000.895,=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\FormUnit1.pas</Transaction>
+    <Transaction>2020/08/15 23:53:51.000.230,=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\WebModuleUnit1.pas</Transaction>
+    <Transaction>2020/08/17 11:08:32.000.283,=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\WebModuleUnit1.pas</Transaction>
+    <Transaction>2020/08/17 11:40:05.000.294,=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\WebModuleUnit1.pas</Transaction>
+    <Transaction>2020/08/27 00:12:47.000.014,=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\WebModuleUnit1.pas</Transaction>
+    <Transaction>2020/09/11 23:28:45.000.098,=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\FormUnit1.pas</Transaction>
+    <Transaction>2020/09/11 23:28:47.000.187,=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\WebModuleUnit1.pas</Transaction>
+    <Transaction>2020/10/13 16:37:08.000.421,=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/11/07 17:25:01.298,=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/11/07 17:26:30.550,C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\Employees\EmployeeListForm.pas=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\Unit1.pas</Transaction>
+    <Transaction>2020/11/07 17:26:30.550,C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\Employees\EmployeeListForm.dfm=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\Unit1.dfm</Transaction>
+    <Transaction>2020/11/07 17:26:36.598,C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\Employees\Employees.dproj=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\Project1.dproj</Transaction>
+    <Transaction>2020/11/07 17:31:08.065,=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\Employees\Unit1.pas</Transaction>
+    <Transaction>2020/11/07 17:35:36.644,C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\Employees\EmployeeDetailsForm.dfm=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\Employees\Unit1.dfm</Transaction>
+    <Transaction>2020/11/07 17:35:36.644,C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\Employees\EmployeeDetailsForm.pas=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\Employees\Unit1.pas</Transaction>
+    <Transaction>2020/11/07 17:41:14.818,=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\Employees\Unit1.pas</Transaction>
+    <Transaction>2020/11/07 17:41:38.521,C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\Employees\DataModule.dfm=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\Employees\Unit1.dfm</Transaction>
+    <Transaction>2020/11/07 17:41:38.521,C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\Employees\DataModule.pas=C:\Users\lcreg\Documents\Embarcadero\Studio\Projects\Employees\Unit1.pas</Transaction>
+  </Transactions>
+</BorlandProject>
